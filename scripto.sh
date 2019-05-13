@@ -18,7 +18,7 @@ declare -a choices
 
 unset choices
 
-choices=$(ls *.sh)
+choices=$(ls | grep '.sh')
 
 printf "%s" "${choices[@]}"  > Sdata.txt
 
@@ -81,17 +81,18 @@ fi
   	then
 		read -p "What is the number of the Script(From options above): $c" nop
 
-    if [ $nop -eq $nop 2>/dev/null ]
-    then
-		fil="${choices[$nop]}"
-		if [ -e $fil ]
-		then
+		if [ $nop -eq $nop 2>/dev/null ]
+	        then
+			fil="${choices[$nop]}"
+			if [ -e $fil ]
+			then
+				read -p "Give positional parameters for the file (seperated by spaces): $c" pm
 				echo "${choices[$nop]}"
-        echo "--------------OUTPUT-------------------"
-			./${choices[$nop]}
-      echo "---------------------------------------"
-		else
-			echo "You are Funny!, There is no such file here! $c"
+        			echo "--------------OUTPUT-------------------"
+				./${choices[$nop]} $pm
+     			        echo "---------------------------------------"
+			else
+				echo "You are Funny!, There is no such file here! $c"
  		fi
   else
     echo "That was not a number!!, Index Arrays dont take strings as indexes"
