@@ -6,6 +6,8 @@ a=0
 c=$'\n'
 
 
+
+
 while :
 do
 
@@ -14,15 +16,15 @@ touch Sdata.txt
 
 declare -a choices
 
-choices=$(ls *.sh)
+unset choices
+
+choices=$(ls | grep '.sh')
 
 printf "%s" "${choices[@]}"  > Sdata.txt
 
 readarray choices < Sdata.txt
 
 rm Sdata.txt
-
-#INTERFACE
 
 echo "                        ------Scripts------- $c"
 
@@ -79,16 +81,22 @@ fi
   	then
 		read -p "What is the number of the Script(From options above): $c" nop
 
-		fil="${choices[$nop]}"
-		if [ -e $fil ]
-		then
+		if [ $nop -eq $nop 2>/dev/null ]
+	        then
+			fil="${choices[$nop]}"
+			if [ -e $fil ]
+			then
+				read -p "Give positional parameters for the file (seperated by spaces): $c" pm
 				echo "${choices[$nop]}"
-        echo "--------------OUTPUT-------------------"
-			./${choices[$nop]}
-      echo "---------------------------------------"
-		else
-			echo "You are Funny!, There is no such file here! $c"
+        			echo "--------------OUTPUT-------------------"
+				./${choices[$nop]} $pm
+     			        echo "---------------------------------------"
+			else
+				echo "You are Funny!, There is no such file here! $c"
  		fi
+  else
+    echo "That was not a number!!, Index Arrays dont take strings as indexes"
+   fi
 		echo "$c Try running actually instead of just running a program!, Its good for health!$c"
 	fi
 
@@ -97,6 +105,8 @@ fi
   	then
 		read -p "What is the number of Script: $c" nop
 
+    if [ $nop -eq $nop 2>/dev/null ]
+    then
 			fil="${choices[$nop]}"
 		if [ -e $fil ]
 		then
@@ -106,6 +116,9 @@ fi
     		else
       		echo "404 File not found! $c"
     		fi
+    else
+      echo "That was not a number!!, Index Arrays dont take strings as indexes"
+     fi
       echo "$c SOMETHING GOOD WILL HAPPEN TO YOU TODAY! :) $c"
   	fi
 
@@ -168,6 +181,5 @@ fi
 	fi
 
 read -p "Press any key to continue.... $c" jk
-
 
 done
