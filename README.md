@@ -10,7 +10,8 @@
 **This Manager can be downloaded and ran on any lunix shell**
 
 
-**If you want to run it from anywhere you have to add into your path variable** 
+
+**If you want to run it from anywhere on your machine, you have to add into your path variable** 
 
 ### To add it to PATH variable follow instructions below
 
