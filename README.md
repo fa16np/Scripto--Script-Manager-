@@ -4,7 +4,8 @@
 
 *Format > .sh*
 
-Sample picture
+![image](https://user-images.githubusercontent.com/44476743/63112820-32683800-bf5f-11e9-8381-faf1112fe4d2.png)
+
 
 **This Manager can be downloaded and ran on any lunix shell**
 **If you want to run it from anywhere you have to add into your path variable** 
