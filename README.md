@@ -2,7 +2,7 @@
 
 **Text Based Script Manager for lunix shell**
 
-*Format > .sh*
+*Format : .sh*
 
 ![image](https://user-images.githubusercontent.com/44476743/63112820-32683800-bf5f-11e9-8381-faf1112fe4d2.png)
 
